@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://fresher-repo-git-main-toluwalaseqas-projects.vercel.app/:match*",
-      "permanent": true
-    }
-  ]
-}

@@ -1,11 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Webpage</title>
 </head>
 <body>
- 
+
+   <header>HTML Document</header>
+    <!-- Navigation Section -->
+    <nav>
+        <a href="#home">Home</a> |
+        <a href="#profile">Profile</a> |
+        <a href="#blog">Blog</a> |
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div id="home">
+        <h1>Welcome to My Page</h1>
+        <h2>Heading Stage 2</h2>
+        <h3>Heading Stage 3</h3>
+        <h4>Heading Stage 4</h4>
+        <h5>Heading Stage 5</h5>
+        <h6>Heading Stage 6</h6>
+        
+        <p>This is a paragraph with a <a href="https://www.example.com" target="_blank" rel="noopener">hyperlink</a> 
+        that opens in a new tab. You can use <b>bold</b>, <i>italic</i>, and <u>underlined</u> text.</p>
+        
+        <img src="https://pixabay.com/photos/countryside-landscape-nature-9352596/" alt="A sample placeholder image">
+    </div>
+
+    <hr>
+
+    <!-- Profile Section -->
+    <div id="profile">
+        <h2>My Profile</h2>
+        <img src="https://pixabay.com/photos/blue-throated-toucanet-toucan-bird-9394818/" alt="Profile picture">
+        <p><strong>Hello!</strong> I'm learning HTML and enjoying the process. 
+        This text uses <em>emphasis</em> to highlight important points.</p>
+    </div>
+
+    <br>
+
+    <!-- Blog Section -->
+    <div id="blog">
+        <h2>Blog Post</h2>
+        <article>
+            <h3>My Favorite Books</h3>
+            <!-- Ordered List -->
+            <ol>
+                <li>The Great Gatsby</li>
+                <li>To Kill a Mockingbird</li>
+                <li>1984</li>
+            </ol>
+            <!-- Unordered List -->
+            <ul>
+                <li>Pride and Prejudice</li>
+                <li>The Catcher in the Rye</li>
+                <li>Brave New World</li>
+            </ul>
+            
+            <blockquote>
+                "The only way to do great work is to love what you do." 
+                - <cite>Steve Jobs</cite>
+            </blockquote>
+        </article>
+    </div>
+
+    <hr>
+
+    <!-- Contact Section with Button -->
+    <div id="contact">
+        <h2>Contact Me</h2>
+        <p>Reach out via: <a href="mailto:yourname@example.com">Email Me</a></p>
+        <button onclick="window.location.href='#home'">Click Me</button>
+    </div>
 </body>
 </html>

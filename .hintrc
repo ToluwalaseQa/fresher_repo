@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "axe/forms": "off",
+    "axe/structure": "off"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not firefox <= 126",
+    "not safari <= 17.5"
+  ]
+}

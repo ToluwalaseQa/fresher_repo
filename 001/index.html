@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution to the Assessments</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9; /* Very light gray background for subtle contrast */
+            color: #333333; /* Dark gray text for readability */
+        }
+
+        h1, h2 {
+            color: #2c3e50; /* Slightly darker blue-gray for headings */
+            margin-bottom: 15px;
+        }
+
+        nav {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #ffffff; /* White background for navigation */
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+        }
+
+        nav a {
+            display: block;
+            padding: 10px 0;
+            color: #34495e; /* Muted blue for links */
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #2980b9; /* Slightly brighter blue on hover for subtle feedback */
+            text-decoration: underline;
+        }
+
+        hr {
+            border: 1px solid #e0e0e0; /* Light gray line for separation */
+            margin: 10px 0;
+        }
+
+        #forms {
+            background-color: #ffffff; /* White background for the forms section */
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            margin-top: 20px;
+        }
+
+        ol {
+            list-style-type: none; /* Remove default numbering for custom styling */
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f5f5f5; /* Very light gray for list items */
+            border-radius: 4px;
+            border-left: 4px solid #2980b9; /* Subtle blue left border for emphasis */
+        }
+
+        input {
+            margin-left: 10px;
+            padding: 8px;
+            border: 1px solid #cccccc; /* Light gray border for inputs */
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #ffffff;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2980b9; /* Blue border on focus for subtle feedback */
+            box-shadow: 0 0 4px rgba(41, 128, 185, 0.2); /* Very light blue shadow */
+        }
+    </style>
+</head>
+<body>
+    <h2>Solution to the Assessments</h2>
+    <nav>
+        <a href="#forms">Form Types</a>
+        <hr>
+        <a href="form.html">A simple user registration form with validation</a>
+        <hr>
+        <a href="video_audio.html">A video and audio player with controls</a>
+        <hr>
+        <a href="svg.html">Get and display any SVG icon from any Figma</a>
+        <hr>
+        <a href="youtube.html">Embed a YouTube video in a webpage using</a>
+        <hr>
+        <a href="wsp.html">Create a Signin Form of WSP without any styling</a>
+        <hr>
+    </nav>
+
+    <!-- Main Section -->
+    <h1>Listing different HTML5 input types and their use cases</h1>
+
+    <div id="forms">
+        <ol>
+            <li>Text(Default): <input type="text" name="username" placeholder="Enter your username" required></li>
+            <li>Email: <input type="email" name="email" placeholder="Enter your email" required></li>
+            <li>Password: <input type="password" name="password" placeholder="Enter password" required></li>
+            <li>Number: <input type="number" name="quantity" min="1" max="10" step="1" placeholder="Enter quantity"></li>
+            <li>Date: <input type="date" name="birthdate" min="1900-01-01" max="2025-12-31" required></li>
+            <li>Time: <input type="time" name="appointment" step="300" required> <!-- Step of 300 seconds (5 minutes) --></li>
+            <li>Month: <input type="month" name="subscription" min="2025-01" max="2025-12" required></li>
+            <li>Color: <input type="color" name="theme-color" value="#FF0000"></li>
+            <li>Tel(Telephone numbers): <input type="tel" name="phone" placeholder="Enter phone number" pattern="[0-9]{10}"></li>
+        </ol>
+    </div>
+</body>
+</html>

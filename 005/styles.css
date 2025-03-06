@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Lato, sans-serif;
+    background-color: #ffe6e6; /* Light pinkish background to match the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(9, 70px); /* 9 columns, each 70px wide */
+    grid-template-rows: repeat(5, auto); /* 5 rows */
+    gap: 20px; /* Space between boxes */
+}
+
+.box-item {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 15px;
+    width: 70px;
+    text-align: left;
+    margin: 4px;
+    box-shadow: none; /* Default no shadow, will apply red or green via classes */
+}
+
+.box-item.red-shadow {
+    box-shadow: -6px 0 1px rgba(202, 2, 2, 0.722); /* Red shadow on the left */
+}
+
+.box-item.green-shadow {
+    box-shadow: -6px 0 1px green; /* Green shadow on the left */
+}
+.box-item.seat.paid{
+    border-left: 6px dashed green; /* Green shadow on the left */
+}

@@ -1,133 +1,195 @@
-/* CSS Variables for Theme Colors */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --background-light: #f5f5f5;
-    --text-light: #333333;
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 20px;
-    font-family: 'Open Sans', sans-serif; /* Default font */
-    line-height: 1.6; /* Task 16: Line-height for readability */
-    letter-spacing: 0.5px; /* Task 16: Letter-spacing for readability */
-    background: linear-gradient(135deg, #f5f5f5, #e0e0e0); /* Task 8: Gradient background */
-    color: var(--text-light); /* Task 4: Text color */
-}
-
-/* Task 1: Different Font Styles and Sizes */
-h1 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-
-h2 {
-    font-family: 'Lora', serif;
-    font-size: 2rem;
-    font-weight: 400;
-}
-
-p {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-/* Task 2: Background Images and Colors */
 .header-section {
-    background-image: url('img4.jpg'); /* Placeholder image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 50px;
-    color: #220202;
-    text-align: center; /* Task 4: Align text */
+    background: linear-gradient(to right, rgba(52, 152, 219, 0.8), rgba(46, 204, 113, 0.8)), 
+                url('https://via.placeholder.com/1920x400') no-repeat center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-section h1 {
+    font-family: 'Lora', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 2px;
 }
 
 .content-section {
-    background-color: var(--background-light); /* Light background color */
-    padding: 20px;
-    margin-top: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
-/* Task 3 & 12 & 14 & 15: Styled Buttons with Hover Effects, Shadows, Rounded Corners, and Transitions */
+.content-section h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* Task 3, 8, 11, 12: Different Styled Buttons */
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
 .styled-button {
+    font-family: 'Roboto', sans-serif;
     padding: 12px 24px;
+    font-size: 1rem;
+    color: white;
     border: none;
-    border-radius: 8px; /* Task 14: Rounded buttons */
-    background-color: var(--secondary-color);
-    color: #ffffff;
-    font-size: 1rem;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Task 12: Box-shadow for depth */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Task 15: CSS transitions */
+    transition: all 0.3s ease; /* Task 12: Transitions */
 }
 
-.styled-button:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-2px); /* Slight lift on hover */
+.button-1 {
+    background-color: var(--primary-color);
+    border-radius: 5px; /* Task 11: Rounded Corners */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Task 8: Box Shadow */
 }
 
-/* Task 13: Section with Semi-Transparent Background */
+.button-1:hover {
+    transform: scale(1.05); /* Task 3: Hover Effect */
+    background-color: #2980b9;
+}
+
+.button-2 {
+    background-color: var(--secondary-color);
+    border-radius: 15px; /* Task 11: Rounded Corners */
+    box-shadow: 0 6px 12px var(--shadow-color); /* Task 8: Box Shadow */
+}
+
+.button-2:hover {
+    transform: rotate(5deg); /* Task 3: Hover Effect */
+    background-color: #27ae60;
+}
+
+.button-3 {
+    background-color: #e74c3c;
+    border-radius: 25px; /* Task 11: Rounded Corners */
+    box-shadow: 0 2px 4px var(--shadow-color); /* Task 8: Box Shadow */
+}
+
+.button-3:hover {
+    transform: translateY(-3px); /* Task 3: Hover Effect */
+    background-color: #c0392b;
+}
+
+/* Task 9: Semi-Transparent Section */
 .semi-transparent {
-    background-color: rgba(52, 152, 219, 0.8); /* Semi-transparent blue */
+    background-color: rgba(52, 152, 219, 0.2);
     padding: 20px;
-    border-radius: 8px; /* Task 14: Rounded divs */
-    color: #ffffff;
-    margin-top: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
 }
 
-/* Task 18: Style Form Elements with Different Border Styles */
-form {
-    margin-top: 20px;
+/* Task 10: Styled Form Elements with Different Border Styles */
+.styled-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 20px auto;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+.styled-form label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.styled-form input[type="text"],
+.styled-form input[type="email"],
+.styled-form input[type="password"] {
     padding: 10px;
-    margin: 5px 0;
-    border: 2px dashed var(--primary-color); /* Dashed border */
-    border-radius: 6px; /* Task 14: Rounded inputs */
     font-size: 1rem;
+    border-radius: 5px;
 }
 
-input[type="submit"] {
-    padding: 10px 20px;
-    border: 2px solid var(--accent-color); /* Solid border */
-    border-radius: 8px; /* Task 14: Rounded button */
-    background-color: var(--accent-color);
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Task 15: CSS transitions */
+.border-dashed {
+    border: 2px dashed var(--primary-color); /* Dashed Border */
 }
 
-input[type="submit"]:hover {
+.border-dotted {
+    border: 2px dotted var(--secondary-color); /* Dotted Border */
+}
+
+.border-double {
+    border: 4px double #e74c3c; /* Double Border */
+}
+
+.styled-form input[type="submit"] {
+    padding: 12px;
+    font-size: 1rem;
     background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Task 17: Notification Badge with Bell Icon */
+.border-groove {
+    border: 3px groove var(--primary-color); /* Groove Border */
+}
+
+.styled-form input[type="submit"]:hover {
+    background-color: #27ae60;
+}
+
+/* Task 14: Notification Badge with Bell Icon */
 .notification-badge {
-    position: relative;
-    display: inline-block;
-    margin: 20px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: inline-block; /* Changed to inline-block to contain the positioned children */
 }
 
 .bell-icon {
-    font-size: 24px;
+    font-size: 1.7rem;
     color: var(--primary-color);
+    position: relative; /* Acts as the reference for the absolute badge */
 }
 
 .badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: var(--accent-color);
-    color: #ffffff;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 1.0rem;
+    padding: 2px 6px; /* Adjusted padding for a tighter fit */
     border-radius: 50%; /* Circular badge */
-    padding: 5px 10px;
-    font-size: 12px;
-    font-weight: bold;
+    position: absolute; /* Positioned relative to .bell-icon */
+    top: -8px; /* Moves it above the bell */
+    right: -8px; /* Moves it to the right of the bell */
+    font-family: 'Roboto', sans-serif;
 }

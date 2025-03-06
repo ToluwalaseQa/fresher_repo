@@ -4,51 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Styled Webpage with Multiple Effects</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header Section with Background Image -->
-    <div class="header-section">
-        <h1>Welcome to my Homely and Sytled Webpage</h1>
-    </div>
+    <header class="header-section">
+        <h1>Welcome to My Styled Webpage</h1>
+    </header>
 
-    <!-- Content Section with Background Color -->
-    <div class="content-section">
-        <h2>Explore Our Features: World</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quisquam animi voluptate sunt quod vel corporis libero distinctio suscipit pariatur?.</p>
+    <main class="content-section">
+        <h2>Explore Our Features</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quisquam animi voluptate sunt quod vel corporis libero distinctio suscipit pariatur?</p>
         
-        <!-- Task 3: Styled Buttons -->
-        <button class="styled-button">Click Me</button>
-        <button class="styled-button" style="background-color: var(--primary-color);">Primary Button</button>
-
-        <!-- Task 13: Semi-Transparent Section -->
-        <div class="semi-transparent">
-            <h2>Check Semi-Transparent Section</h2>
-            <p>This section shows a semi-transparent background for a modern look.</p>
+        <!-- Task 3, 8, 11, 12: Different Styled Buttons -->
+        <div class="button-container">
+            <button class="styled-button button-1">Button 1</button>
+            <button class="styled-button button-2">Button 2</button>
+            <button class="styled-button button-3">Button 3</button>
         </div>
 
-        <!-- Task 18: Styled Form Elements -->
-        <form>
+        <section class="semi-transparent">
+            <h2>Check Semi-Transparent Section</h2>
+            <p>This section shows a semi-transparent background for a modern look.</p>
+        </section>
+
+        <!-- Task 10: Styled Form Elements with Different Border Styles -->
+        <form class="styled-form">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter username" required>
+            <input type="text" id="username" name="username" placeholder="Enter username" class="border-dashed" required>
             
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter email" required>
+            <input type="email" id="email" name="email" placeholder="Enter email" class="border-dotted" required>
             
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter password" required>
+            <input type="password" id="password" name="password" placeholder="Enter password" class="border-double" required>
             
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" class="submit-btn border-groove">
         </form>
 
-        <!-- Task 17: Notification Badge with Bell Icon -->
         <div class="notification-badge">
-            <!-- Using Unicode for a bell icon (or you can use a font like Font Awesome) -->
             <span class="bell-icon">🔔</span>
             <span class="badge">5</span>
         </div>
-    </div>
+    </main>
 </body>
 </html>

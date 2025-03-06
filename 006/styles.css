@@ -1,0 +1,78 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Lato, sans-serif;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column; /* Changed to column to stack header and popular-items vertically */
+            align-items: center; /* Center all children (header and popular-items) horizontally */
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            font-size: 22px;
+            color: #666;
+            margin-bottom: 40px; /* Increased from 30px to 40px for more space */
+            text-align: center;
+            width: 100%; /* Ensure the header takes the full width for centering */
+        }
+
+        .popular-items {
+            background-color: #f5f5f5;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .popular-items h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto); /* Adjusted for 6 items (3 rows) */
+            gap: 15px;
+        }
+
+        .item-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px; /* Base padding for left and right */
+            text-align: left;
+            width: 150px; /* Fixed width to make it square */
+            height: 150px; /* Fixed height to make it square */
+            display: flex;
+            flex-direction: column;
+            /* Removed justify-content: center to control positioning with padding */
+        }
+
+        .item-card .item-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 5px; /* Adjusted margin to space out name and orders */
+            max-width: 120px; /* Fixed max-width to equalize length */
+            word-wrap: break-word; /* Allow text to wrap if too long */
+            padding-top: 10px; /* Padding to push item-name down slightly from the top */
+        }
+
+        .item-card .item-orders {
+            font-size: 14px;
+            color: #2c2b2b;
+            max-width: 120px; /* Fixed max-width to equalize length */
+            word-wrap: break-word; /* Allow text to wrap if too long */
+            padding-bottom: 10px; /* Padding to push item-orders up slightly from the bottom */
+            margin-top: auto; /* Pushes item-orders to the bottom of the flex container */
+        }

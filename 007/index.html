@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McDonald's Order Status - RWD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 20px;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo i {
+            color: #ff0000;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .header .logo span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .header .time {
+            font-size: 18px;
+            color: #000;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .section {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .items-grid {
+            display: grid;
+            gap: 10px;
+        }
+
+        .item-card {
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            transition: transform 0.2s;
+        }
+
+        .item-card:hover {
+            transform: scale(1.05);
+        }
+
+        .section.ready .items-grid .item-card {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        /* Preparing Section */
+        .items-grid.preparing {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(6, 60px); /* 6 rows, last row empty for blank space */
+        }
+
+        /* Ready Section */
+        .items-grid.ready {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto repeat(5, 60px); /* First row auto for large card, then 5 rows of 60px */
+            gap: 15px; /* Increased gap for more space, especially below the first card */
+        }
+
+        .items-grid.ready .item-card:first-child {
+            grid-column: span 4; /* First card spans all 4 columns */
+            height: 100px; /* Larger height for the first card */
+            font-size: 20px; /* Larger font size for the first card */
+            margin-bottom: 10px; /* Additional margin to create space below the first card */
+        }
+
+        /* Responsive Design */
+        @media (min-width: 1024px) {
+            .items-grid.preparing {
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: repeat(6, 60px);
+            }
+            .items-grid.ready {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: auto repeat(5, 60px);
+            }
+            .items-grid.ready .item-card:first-child {
+                grid-column: span 4;
+                height: 100px;
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 1023px) and (min-width: 768px) {
+            .items-grid.preparing {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(9, 60px);
+            }
+            .items-grid.ready {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto repeat(7, 60px);
+            }
+            .items-grid.ready .item-card:first-child {
+                grid-column: span 3;
+                height: 100px;
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                flex-direction: column;
+            }
+            .items-grid.preparing {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(17, 60px);
+            }
+            .items-grid.ready {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto repeat(10, 60px);
+            }
+            .items-grid.ready .item-card:first-child {
+                grid-column: span 2;
+                height: 100px;
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <i class="fas fa-hamburger"></i>
+            <span>McDonald's</span>
+        </div>
+        <div class="time">15:03</div>
+    </div>
+    <div class="container">
+        <div class="section preparing">
+            <h2>Preparing</h2>
+            <div class="items-grid preparing">
+                <!-- 30 cards, leaving the last row empty for blank space -->
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <!-- Last row (6 cells) left empty -->
+            </div>
+        </div>
+        <div class="section ready">
+            <h2>Ready</h2>
+            <div class="items-grid ready">
+                <!-- First card is larger -->
+                <div class="item-card">3885</div>
+                <!-- Remaining 19 cards in rows of 4 -->
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+                <div class="item-card">3885</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

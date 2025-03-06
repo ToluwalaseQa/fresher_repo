@@ -1,0 +1,372 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .layout-container {
+            background: linear-gradient(to right, #ffe6e6, #fff);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Updated Top Header */
+        .top-header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(to right, #f5e7ea, #ffffff);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .top-header .title-section {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Increased gap for spacing */
+        }
+
+        .top-header .title-section .status-icon {
+            width: 40px; /* Adjust size as needed */
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top-header .title-section .status-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures the image scales properly */
+        }
+
+        .top-header .title-section h1 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .top-header .fullscreen-section {
+            display: flex;
+            align-items: center;
+            gap: 5px; /* Space between icon and text */
+        }
+
+        .top-header .fullscreen-section .fullscreen-btn {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .top-header .fullscreen-section .fullscreen-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .top-header .fullscreen-section .fullscreen-text {
+            font-size: 14px;
+            color: #000;
+        }
+
+        /* Updated McDonald's Header */
+        .header {
+            background-color: #e0e0e0;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header .logo img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .header .logo span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .header .time {
+            font-size: 18px;
+            color: #000;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        /* Sidebar Container (for both Sidebar and Sidebar Footer) */
+        .sidebar-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Sidebar with Black Background */
+        .sidebar {
+            width: 60px;
+            background-color: #000; /* Black background */
+            padding: 10px 0;
+            border-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            background-color: #333; /* Default gray background */
+        }
+
+        .sidebar .icon.active {
+            background-color: #ff4500; /* Orange background for active icon */
+        }
+
+        .sidebar .icon.notification {
+            background-color: #ff4500; /* Orange background for notification icon */
+        }
+
+        .sidebar .icon.notification .dot,
+        .sidebar-footer .bell .dot {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px; /* Smaller red dot */
+            height: 8px;
+            background-color: #ff0000; /* Red dot */
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        /* Sidebar Footer Below Sidebar */
+        .sidebar-footer {
+            width: 60px;
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly red/white background */
+            border-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-footer .profile,
+        .sidebar-footer .bell {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .sidebar-footer .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .sidebar-footer .bell {
+            cursor: pointer;
+        }
+
+        .content-sections {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+        }
+
+        .section {
+            flex: 1;
+            min-width: 0;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .section h2 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .items-grid {
+            display: grid;
+            gap: 10px;
+        }
+
+        .item-card {
+            background-color: #d3d3d3;
+            border-radius: 5px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+            transition: transform 0.2s;
+        }
+
+        .item-card:hover {
+            transform: scale(1.05);
+        }
+
+        .section.ready .items-grid .item-card {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .items-grid.preparing {
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 50px);
+        }
+
+        .items-grid.ready {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto repeat(4, 50px);
+        }
+
+        .items-grid.ready .item-card:first-child {
+            grid-column: span 4;
+            height: 100px;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Fullscreen Functionality */
+        :root {
+            --is-fullscreen: 0;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .layout-container.fullscreen {
+                animation: fadeIn 0.3s ease-in-out;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1023px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .sidebar-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                width: 100%;
+            }
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            .sidebar-footer {
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            .content-sections {
+                flex-direction: column;
+            }
+            .items-grid.preparing {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(7, 50px);
+            }
+            .items-grid.ready {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto repeat(6, 50px);
+            }
+            .items-grid.ready .item-card:first-child {
+                grid-column: span 3;
+                height: 100px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .top-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .items-grid.preparing {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(13, 50px);
+            }
+            .items-grid.ready {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto repeat(8, 50px);
+            }
+            .items-grid.ready .item-card:first-child {
+                grid-column: span 2;
+                height: 100px;
+                font-size: 20px;
+            }
+        }

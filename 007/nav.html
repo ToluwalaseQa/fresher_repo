@@ -4,302 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>McDonald's Order Status - Responsive</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
-
-        /* Container Box for Entire Layout */
-        .layout-container {
-            background: linear-gradient(to right, #ffe6e6, #fff);
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        /* Sticky Header */
-        .header {
-            position: sticky;
-            top: 0;
-            background-color: #e0e0e0;
-            padding: 10px 20px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .header .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .header .logo i {
-            color: #ff0000;
-            font-size: 24px;
-            margin-right: 10px;
-        }
-
-        .header .logo span {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .header .time {
-            font-size: 18px;
-            color: #000;
-        }
-
-        /* Main Content with Sidebar */
-        .main-content {
-            display: flex;
-            gap: 10px;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 60px;
-            background-color: #fff;
-            padding: 10px 0;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar .icon {
-            font-size: 24px;
-            color: #fff;
-            background-color: #333; /* Default gray background */
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .sidebar .icon.active {
-            background-color: #ff4500; /* Orange background for active icon */
-            color: #fff;
-        }
-
-        .sidebar .icon.notification {
-            background-color: #ff4500; /* Orange background for notification icon */
-        }
-
-        .sidebar .icon.notification .dot,
-        .sidebar .bell .dot {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 15px;
-            height: 15px;
-            background-color: #ff0000; /* Red dot */
-            border-radius: 50%;
-            border: 2px solid #fff;
-        }
-
-        .sidebar .bell {
-            font-size: 24px;
-            color: #666;
-            background-color: #ccc;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .sidebar .profile {
-            margin-top: auto;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            overflow: hidden;
-            background-color: #ccc;
-        }
-
-        .sidebar .profile img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Content Sections */
-        .content-sections {
-            flex: 1;
-            display: flex;
-            gap: 20px;
-        }
-
-        .section {
-            flex: 1;
-            min-width: 0;
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 15px;
-        }
-
-        .section h2 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #000;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .items-grid {
-            display: grid;
-            gap: 10px;
-        }
-
-        .item-card {
-            background-color: #d3d3d3;
-            border-radius: 5px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 14px;
-            font-weight: bold;
-            color: #000;
-            transition: transform 0.2s;
-        }
-
-        .item-card:hover {
-            transform: scale(1.05);
-        }
-
-        .section.ready .items-grid .item-card {
-            background-color: #28a745;
-            color: #fff;
-        }
-
-        .items-grid.preparing {
-            grid-template-columns: repeat(5, 1fr);
-            grid-template-rows: repeat(5, 50px);
-        }
-
-        .items-grid.ready {
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: auto repeat(4, 50px);
-        }
-
-        .items-grid.ready .item-card:first-child {
-            grid-column: span 4;
-            height: 100px;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1023px) {
-            .main-content {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                flex-direction: row;
-                justify-content: space-around;
-                padding: 10px;
-                border-radius: 10px;
-            }
-            .sidebar .profile {
-                margin-top: 0;
-            }
-            .content-sections {
-                flex-direction: column;
-            }
-            .items-grid.preparing {
-                grid-template-columns: repeat(4, 1fr);
-                grid-template-rows: repeat(7, 50px);
-            }
-            .items-grid.ready {
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: auto repeat(6, 50px);
-            }
-            .items-grid.ready .item-card:first-child {
-                grid-column: span 3;
-                height: 100px;
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .header {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-            .items-grid.preparing {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(13, 50px);
-            }
-            .items-grid.ready {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: auto repeat(8, 50px);
-            }
-            .items-grid.ready .item-card:first-child {
-                grid-column: span 2;
-                height: 100px;
-                font-size: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="nav.css">
 </head>
 <body>
     <div class="layout-container">
+        <!-- New Top Header -->
+        <div class="top-header">
+            <div class="title-section">
+                <div class="status-icon"><img src="Logo (1).png" alt="Orderific"></div>
+                <h1>Order Status</h1>
+            </div>
+            <div class="fullscreen-section">
+                <div class="fullscreen-btn">⧉</div>
+                <span class="fullscreen-text">fullscreen</span>
+            </div>
+        </div>
+        <!-- Updated McDonald's Header with Logo -->
         <div class="header">
             <div class="logo">
-                <i class="fas fa-hamburger"></i>
+                <img src="img3.png" alt="McDonald's Logo">
                 <span>McDonald's</span>
             </div>
             <div class="time">15:03</div>
         </div>
         <div class="main-content">
-            <div class="sidebar">
-                <div class="icon active"><i class="fas fa-clipboard-list"></i></div>
-                <div class="icon"><i class="fas fa-table"></i></div>
-                <div class="icon"><i class="fas fa-bars"></i></div>
-                <div class="icon notification">
-                    <i class="fas fa-comment"></i>
-                    <div class="dot"></div>
+            <!-- Sidebar Container -->
+            <div class="sidebar-container">
+                <div class="sidebar">
+                    <!-- SVG Icon 1 (Clipboard List) -->
+                    <div class="icon active">
+                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="white" fill-opacity="0.2"/>
+                            <path d="M21.2082 23.7915H26.7915V22.7082H21.2082V23.7915ZM21.2082 20.7915H26.7915V19.7082H21.2082V20.7915ZM29.5463 30.5254L26.8694 27.0082C26.6796 26.7537 26.4447 26.5567 26.1647 26.4173C25.8847 26.2779 25.5797 26.2082 25.2498 26.2082H18.4165V17.7563C18.4165 17.3811 18.5461 17.0641 18.8053 16.805C19.0645 16.546 19.3818 16.4165 19.7571 16.4165H28.2493C28.6246 16.4165 28.9408 16.546 29.1977 16.805C29.4547 17.0641 29.5831 17.3811 29.5831 17.7563V30.2434C29.5831 30.2934 29.5818 30.3425 29.5791 30.3907C29.5764 30.4388 29.5655 30.4838 29.5463 30.5254ZM19.7563 31.5831C19.3811 31.5831 19.0641 31.4536 18.805 31.1946C18.546 30.9356 18.4165 30.6185 18.4165 30.2434V27.2915H25.2498C25.393 27.2915 25.5335 27.3224 25.6713 27.3844C25.8091 27.4464 25.9259 27.5407 26.0218 27.6674L28.8796 31.4238C28.7941 31.4702 28.6954 31.5083 28.5833 31.5383C28.4712 31.5682 28.3579 31.5831 28.2434 31.5831H19.7563Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <!-- SVG Icon 2 (Table) -->
+                    <div class="icon">
+                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="white" fill-opacity="0.2"/>
+                            <path d="M16 16H32V20H16V16ZM16 22H32V26H16V22ZM16 28H32V32H16V28Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <!-- SVG Icon 3 (Bars) -->
+                    <div class="icon">
+                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="white" fill-opacity="0.2"/>
+                            <path d="M16 20H32V24H16V20ZM16 26H32V30H16V26ZM16 32H32V36H16V32Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <!-- SVG Icon 4 (Comment/Notification) -->
+                    <!-- <div class="icon notification">
+                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="white" fill-opacity="0.2"/>
+                            <path d="M24 16C28.4183 16 32 19.5817 32 24C32 28.4183 28.4183 32 24 32C19.5817 32 16 28.4183 16 24C16 19.5817 19.5817 16 24 16ZM24 20C21.7909 20 20 21.7909 20 24C20 26.2091 21.7909 28 24 28C26.2091 28 28 26.2091 28 24C28 21.7909 26.2091 20 24 20Z" fill="white"/>
+                        </svg>
+                        <div class="dot"></div>
+                    </div> -->
+                    <!-- SVG Icon 5 (Book) -->
+                    <div class="icon">
+                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="white" fill-opacity="0.2"/>
+                            <path d="M16 16H28C30.2091 16 32 17.7909 32 20V32H16V16ZM20 20V28H28V20H20Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <!-- SVG Icon 6 (Custom 'C') -->
+                    <div class="icon">
+                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="white" fill-opacity="0.2"/>
+                            <path d="M28 20C28 17.7909 26.2091 16 24 16C21.7909 16 20 17.7909 20 20V28C20 30.2091 21.7909 32 24 32C26.2091 32 28 30.2091 28 28" fill="white"/>
+                        </svg>
+                    </div>
                 </div>
-                <div class="icon"><i class="fas fa-book"></i></div>
-                <div class="icon"><i class="fas fa-c"></i></div>
-                <div class="bell">
-                    <i class="fas fa-bell"></i>
-                    <div class="dot"></div>
-                </div>
-                <div class="profile">
-                    <img src="https://via.placeholder.com/40" alt="Profile">
+                <!-- Sidebar Footer Below Sidebar -->
+                <div class="sidebar-footer">
+                    <div class="profile">
+                        <img src="img3.png" alt="Profile">
+                    </div>
+                    <div class="bell">
+                        <svg width="34" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="white" fill-opacity="0.2"/>
+                            <path d="M24 16C27.3137 16 30 18.6863 30 22V26C30 27.1046 30.8954 28 32 28H16C17.1046 28 18 27.1046 18 26V22C18 18.6863 20.6863 16 24 16ZM24 32C22.8954 32 22 31.1046 22 30H26C26 31.1046 25.1046 32 24 32Z" fill="#000000"/> <!-- Black fill -->
+                        </svg>
+                        <div class="dot"></div>
+                    </div>
                 </div>
             </div>
             <div class="content-sections">
@@ -324,13 +111,7 @@
                         <div class="item-card">3885</div>
                         <div class="item-card">3885</div>
                         <div class="item-card">3885</div>
-                        <div class="item-card">3885</div>
-                        <div class="item-card">3885</div>
-                        <div class="item-card">3885</div>
-                        <div class="item-card">3885</div>
-                        <div class="item-card">3885</div>
-                        <div class="item-card">3885</div>
-                        <div class="item-card">3885</div>
+                       
                     </div>
                 </div>
                 <div class="section ready">
@@ -357,5 +138,25 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fullscreenBtn = document.querySelector('.fullscreen-btn');
+            const layoutContainer = document.querySelector('.layout-container');
+
+            fullscreenBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    layoutContainer.requestFullscreen().then(() => {
+                        layoutContainer.classList.add('fullscreen');
+                    }).catch(err => {
+                        console.error(`Error attempting to enable fullscreen mode: ${err.message}`);
+                    });
+                } else {
+                    document.exitFullscreen().then(() => {
+                        layoutContainer.classList.remove('fullscreen');
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -45,7 +45,9 @@ h1 {
     color: #121212;
     margin-bottom: 16px;
 }
-
+.red{
+    color: rgb(226, 72, 34);
+}
 
 header p {
   font-size: 1.2em;

@@ -28,14 +28,15 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
             width: 100%;
-            max-width: 350px;
+            max-width: 430px;
         }
 
         .popular-items h2 {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: 500;
             color: #000;
             margin-bottom: 20px;
+            letter-spacing: -1%;
         }
 
         .items-grid {
@@ -51,8 +52,8 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 15px; /* Base padding for left and right */
             text-align: left;
-            width: 150px; /* Fixed width to make it square */
-            height: 150px; /* Fixed height to make it square */
+            width: 190px; /* Fixed width to make it square */
+            height: 140px; /* Fixed height to make it square */
             display: flex;
             flex-direction: column;
             /* Removed justify-content: center to control positioning with padding */

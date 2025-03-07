@@ -21,7 +21,7 @@ body {
 
 .header-section {
     background: linear-gradient(to right, rgba(52, 152, 219, 0.8), rgba(46, 204, 113, 0.8)), 
-                url('https://via.placeholder.com/1920x400') no-repeat center/cover;
+                url('im') no-repeat center/cover;
     height: 400px;
     display: flex;
     align-items: center;
@@ -185,11 +185,65 @@ body {
 .badge {
     background-color: #e74c3c;
     color: white;
-    font-size: 1.0rem;
-    padding: 2px 6px; /* Adjusted padding for a tighter fit */
-    border-radius: 50%; /* Circular badge */
-    position: absolute; /* Positioned relative to .bell-icon */
-    top: -8px; /* Moves it above the bell */
-    right: -8px; /* Moves it to the right of the bell */
+    font-size: 0.9rem;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -5px;
     font-family: 'Roboto', sans-serif;
+    box-shadow: 0 0 5px var(--shadow-color);
+}
+
+/* Features Section Styling */
+.features-section {
+    background: linear-gradient(to left, rgba(231, 76, 60, 0.7), rgba(241, 196, 15, 0.7)), 
+                url('img3.png') no-repeat center/cover;
+    padding: 40px 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    color: white;
+}
+
+.features-section h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.features-section p {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Contact Section Styling */
+.contact-section {
+    background: linear-gradient(to bottom, rgba(46, 204, 113, 0.6), rgba(52, 152, 219, 0.6)), 
+                url('img4.jpg') no-repeat center/cover;
+    padding: 40px 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    color: rgb(30, 18, 18);
+}
+
+.contact-section h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }

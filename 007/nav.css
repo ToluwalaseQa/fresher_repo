@@ -6,7 +6,7 @@
         }
 
         body {
-            background-color: #f5f5f5;
+            background: linear-gradient(to right, #f5f5f5, #ffe6e6); /* White to pink gradient on body */
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -15,15 +15,13 @@
         }
 
         .layout-container {
-            background: linear-gradient(to right, #ffe6e6, #fff);
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 1200px;
             padding: 20px;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            background: none; /* Remove gradient from container */
         }
 
         /* Updated Top Header */
@@ -44,11 +42,11 @@
         .top-header .title-section {
             display: flex;
             align-items: center;
-            gap: 15px; /* Increased gap for spacing */
+            gap: 15px;
         }
 
         .top-header .title-section .status-icon {
-            width: 40px; /* Adjust size as needed */
+            width: 40px;
             height: 40px;
             display: flex;
             justify-content: center;
@@ -58,7 +56,7 @@
         .top-header .title-section .status-icon img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Ensures the image scales properly */
+            object-fit: contain;
         }
 
         .top-header .title-section h1 {
@@ -70,7 +68,7 @@
         .top-header .fullscreen-section {
             display: flex;
             align-items: center;
-            gap: 5px; /* Space between icon and text */
+            gap: 5px;
         }
 
         .top-header .fullscreen-section .fullscreen-btn {
@@ -133,7 +131,7 @@
             gap: 10px;
         }
 
-        /* Sidebar Container (for both Sidebar and Sidebar Footer) */
+        /* Sidebar Container */
         .sidebar-container {
             display: flex;
             flex-direction: column;
@@ -143,7 +141,7 @@
         /* Sidebar with Black Background */
         .sidebar {
             width: 60px;
-            background-color: #000; /* Black background */
+            background-color: #000;
             padding: 10px 0;
             border-radius: 40px;
             display: flex;
@@ -162,15 +160,15 @@
             align-items: center;
             cursor: pointer;
             position: relative;
-            background-color: #333; /* Default gray background */
+            background-color: #333;
         }
 
         .sidebar .icon.active {
-            background-color: #ff4500; /* Orange background for active icon */
+            background-color: #ff4500;
         }
 
         .sidebar .icon.notification {
-            background-color: #ff4500; /* Orange background for notification icon */
+            background-color: #ff4500;
         }
 
         .sidebar .icon.notification .dot,
@@ -178,9 +176,9 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 8px; /* Smaller red dot */
+            width: 8px;
             height: 8px;
-            background-color: #ff0000; /* Red dot */
+            background-color: #ff0000;
             border-radius: 50%;
             border: 2px solid #fff;
         }
@@ -189,7 +187,7 @@
         .sidebar-footer {
             width: 60px;
             padding: 10px 0;
-            background-color: rgba(255, 255, 255, 0.9); /* Slightly red/white background */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 40px;
             display: flex;
             flex-direction: column;
@@ -223,15 +221,16 @@
         .content-sections {
             flex: 1;
             display: flex;
-            gap: 20px;
+            gap: 15px; /* Increased gap for separation between cards */
         }
 
         .section {
             flex: 1;
             min-width: 0;
-            background-color: #fff;
+            background-color: #fff; /* Each section is now a card */
             border-radius: 10px;
             padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
         }
 
         .section h2 {
@@ -329,6 +328,7 @@
             }
             .content-sections {
                 flex-direction: column;
+                gap: 20px; /* Reduced gap for vertical stacking */
             }
             .items-grid.preparing {
                 grid-template-columns: repeat(4, 1fr);
@@ -343,6 +343,9 @@
                 height: 100px;
                 font-size: 20px;
             }
+            .section {
+                padding: 10px; /* Slightly reduced padding */
+            }
         }
 
         @media (max-width: 767px) {
@@ -356,17 +359,29 @@
                 gap: 10px;
                 text-align: center;
             }
+            .content-sections {
+                gap: 15px; /* Further reduced gap for mobile */
+            }
             .items-grid.preparing {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(13, 50px);
+                gap: 8px;
             }
             .items-grid.ready {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: auto repeat(8, 50px);
+                gap: 8px;
             }
             .items-grid.ready .item-card:first-child {
                 grid-column: span 2;
-                height: 100px;
-                font-size: 20px;
+                height: 80px; /* Slightly smaller for mobile */
+                font-size: 18px;
+            }
+            .item-card {
+                height: 40px; /* Reduced height for compactness */
+                font-size: 12px;
+            }
+            .section {
+                padding: 8px; /* Minimal padding for mobile */
             }
         }

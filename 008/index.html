@@ -2,19 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensure this is present -->
-    <title>Desktop Design - Left Section with Red Background</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image with Highly Transparent Overlays</title>
+    <style>
+        /* Container for the image and overlays */
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 400px; /* Adjust based on image size */
+            height: 600px; /* Adjust based on image size */
+            background-image: url('Introduction.png'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+
+        /* First overlay */
+        .overlay1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 106%;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0.1); /* Red overlay with 10% opacity */
+            border-radius: 10px;
+            z-index: 1; /* Lower z-index to stack below overlay2 */
+        }
+
+        /* Second overlay */
+        .overlay2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 105%;
+            height: 100%;
+            background-color: rgba(0, 0, 255, 0.1); /* Blue overlay with 10% opacity */
+            border-radius: 10px;
+            z-index: 2; /* Higher z-index to stack above overlay1 */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="left-section">
-            <div class="card">
-                <img src="Introduction.png" alt="Delivery Person Image" class="card-image">
-                <div class="overlay-red"></div> <!-- Red background overlay -->
-                <div class="overlay-gradient"></div> <!-- Gradient overlay -->
-            </div>
-        </div>
+        <div class="overlay1"></div>
+        <div class="overlay2"></div>
     </div>
 </body>
 </html>

@@ -12,6 +12,8 @@
             justify-content: center;
             align-items: center;
             padding: 10px;
+            /* overflow: hidden; */
+            
         }
 
         .layout-container {
@@ -26,7 +28,7 @@
 
         /* Updated Top Header */
         .top-header {
-            position: sticky;
+            position: relative;
             top: 0;
             background: linear-gradient(to right, #f5e7ea, #ffffff);
             padding: 10px 20px;

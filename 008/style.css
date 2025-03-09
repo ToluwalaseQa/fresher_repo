@@ -1,116 +1,113 @@
-/* Reset default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Body styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Prevent scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-/* Container for the entire layout */
-.container {
-    display: flex;
-    min-height: 100vh; /* Full viewport height */
-    width: 100%;
-}
+        /* Container for the entire layout */
+        .container {
+            display: flex;
+            height: 100vh; /* Full viewport height */
+            width: 100%;
+            overflow: hidden; /* Ensure no overflow */
+        }
 
-/* Left section styling */
-.left-section {
-    flex: 1; /* Takes up the left portion of the container */
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    width: 50%; /* Left section takes half the screen in desktop view */
-}
+        /* Left section styling */
+        .left-section {
+            flex: 1; /* Takes up available space */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            width: 50%; /* Half the screen on desktop */
+        }
 
-/* Card styling */
-.card {
-    position: relative;
-    width: 100%;
-    height: 80vh; /* Takes up most of the viewport height */
-    max-width: 400px; /* Limits the card width for larger screens */
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
+        /* Card styling adapted from Figma */
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 40px;
+            gap: 20px; /* Adjusted from 600px to a reasonable value */
+            isolation: isolate; /* Matches Figma's isolation */
 
-/* Image styling */
-.card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image fills the card without distortion */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Image is the base layer */
-}
+            width: 100%;
+            max-width: 480px; /* Figma width as max-width */
+            height: 100%; /* Fit the container height */
+            max-height: 802px; /* Figma height as max-height */
 
-/* Red background overlay */
-.overlay-red {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 0, 0, 0.3); /* Increased opacity for visibility */
-    z-index: 2; /* Above the image */
-    mix-blend-mode: overlay; /* Blends the red with the image for a natural effect */
-}
+            background: url('Introduction.png'); /* Background image */
+            background-size: cover; /* Ensure image fills the card */
+            background-position: center;
+            border-radius: 32px; /* Matches Figma */
 
-/* Gradient overlay */
-.overlay-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(48, 211, 132, 0.2), rgba(0, 0, 0, 0.5));
-    z-index: 3; /* Above the red overlay */
-}
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
+        /* Red background overlay */
+        .overlay-red {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0.5); /* Visible red overlay */
+            z-index: 2; /* Above the image */
+            mix-blend-mode: multiply; /* Stronger blending effect */
+        }
 
+        /* Gradient overlay */
+        .overlay-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(48, 211, 132, 0.4), rgba(0, 0, 0, 0.7));
+            z-index: 3; /* Above the red overlay */
+            mix-blend-mode: normal; /* Clear visibility */
+        }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
 
-    .left-section {
-        width: 100%; /* Full width on smaller screens */
-        padding: 10px;
-    }
+            .left-section {
+                width: 100%; /* Full width on tablets */
+                padding: 10px;
+                height: 100%; /* Fit the screen */
+            }
 
-    .card {
-        max-width: 100%;
-        height: 60vh; /* Adjust height for tablets */
-    }
+            .card {
+                max-width: 100%; /* Full width */
+                padding: 20px; /* Reduced padding */
+                gap: 15px; /* Smaller gap */
+            }
+        }
 
-    .card-content h1 {
-        font-size: 2rem;
-    }
+        @media (max-width: 480px) {
+            .left-section {
+                padding: 5px; /* Minimal padding for phones */
+            }
 
-    .card-content p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .card {
-        height: 50vh; /* Further adjust for phones */
-    }
-
-    .card-content h1 {
-        font-size: 1.5rem;
-    }
-
-    .card-content p {
-        font-size: 0.8rem;
-    }
-}
+            .card {
+                padding: 15px; /* Further reduced padding */
+                gap: 10px; /* Minimal gap */
+                border-radius: 16px; /* Slightly smaller radius */
+            }
+        }

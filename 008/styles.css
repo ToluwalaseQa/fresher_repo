@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.gcontainer{
+    width: 500px;
+    height: 822px;
+    background: linear-gradient(to bottom, #FEF4F2, #FFEAE6);
+    margin: 100px auto;
+    display: flex;
+justify-content: center;
+    align-items: center;
+}
+.gcard{
+    position: relative;
+    width: 480px;
+    height: 802px;
+    border-radius: 32px;
+    background-image: url("./crack.png");
+    background-size: cover;
+    background-position: center;
+    padding-top: 32px;
+    padding-left: 24px;
+}
+.goverlay{
+    position: absolute;
+    background: linear-gradient(to bottom, #FF5634 70%, #000000 100%); /* Extends the orange before fading to black */
+    border-radius: 32px;
+    inset: 0;
+    opacity: 0.5; /* Keeps the transparency effect */
+}
+.glogo{
+    width: 164.05px;
+    height: 38.97px;
+    position: relative;
+}
+.gtext-container{
+    position:absolute;
+    bottom: 40px;
+    color: white;
+    width: 400px;
+    height: 160px;
+
+}
+.gtitle{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 56px;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+}
+.gdescription{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}

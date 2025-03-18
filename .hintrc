@@ -7,7 +7,13 @@
     "axe/structure": "off",
     "button-type": "off",
     "no-inline-styles": "off",
-    "axe/keyboard": "off"
+    "axe/keyboard": "off",
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off"
+      }
+    ]
   },
   "browserslist": [
     "defaults",

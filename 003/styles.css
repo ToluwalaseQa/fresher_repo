@@ -1,280 +1,291 @@
+/* Reset and Base Styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif; /* Matching reference font */
 }
 
 body {
-  background-color: #fff;
-  color: #333;
-  line-height: 1.6;
+    background-color: #fff;
+    color: #121212;
+    line-height: 1.6;
 }
 
-header {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
+/* Header Section */
+.header-menu {
+    padding: 40px 0;
+    background-color: #fff;
 }
 
 .header-content {
-  max-width: 1200px;
-  margin: 0 auto;
+    text-align: center;
 }
 
-.logo {
-  width: 150px;
-  margin-bottom: 10px;
-  display: block;
-  max-width: 100%;
-  height: auto;
+.logo-container img {
+    width: 150px;
+    height: auto;
 }
 
-.highlight-text {
+
+.custom-content-heading .highlight-text {
     font-weight: 700;
     letter-spacing: 1.6px;
     text-transform: uppercase;
     color: #FF5634;
+    display: block;
     margin-bottom: 16px;
+    font-size: 16px;
 }
+
 h1 {
- font-size: 4.2rem;
+    font-size: 48px;
     font-weight: 700;
-    line-height: 1.2em;
+    line-height: 1.2;
     color: #121212;
-    margin-bottom: 16px;
-}
-.red{
-    color: rgb(226, 72, 34);
 }
 
-header p {
-  font-size: 1.2em;
-  color: #666;
+.red {
+    color: #FF5634;
 }
 
-.pricing-section {
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 20px;
-  text-align: center;
+/* Pricing Section */
+.pricing-container {
+    padding: 40px 0;
 }
 
-.tagline {
-  font-size: 1.1em;
-  color: #666;
-  margin-bottom: 30px;
-  margin-top: -4px;
+.content-padding {
+    padding: 0 15px;
+}
+
+.para {
+    font-size: 18px;
+    color: #656565;
+    margin-bottom: 40px;
 }
 
 .pricing-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  width: 600px;
-  margin: 0 auto;
-  border: 1px solid #eee;
-  position: relative;
-  position: relative; /* Ensure relative positioning for absolute child */
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.no-fee-circle {
-  position: absolute;
-  top: -20px;
-  left: -40px;
-  background: #ffebee;
-  border-radius: 50%;
-  padding: 5px 5px;
-  color: #ff4d4d;
-  font-size: 0.9em;
-  font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 150px;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 1;
+.position-absolute {
+    position: absolute;
+    top: -40px;
+    left: -30px; /* Aligns to the top-left edge of the card */
 }
 
-.plan-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 10px;
+.img-container .no-fee-circle {
+    background: #FFF5F5;
+    border-radius: 50%;
+    padding: 10px;
+    color: #FF4D4D;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+}
+/* .position-absolute .no-fee-circle {
+    position: absolute;
+    top: -50px;
+    left: -20px;
+    background: #FFF5F5;
+    border-radius: 50%;
+    padding: 10px;
+    color: #FF4D4D;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+} */
+
+.pricing-row {
+    margin-bottom: 20px;
 }
 
-.plan-icon img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  background-color: #e0f7fa; /* Light blue background to match the image */
-  border-radius: 50%;
-  padding: 5px;
+.icon-row {
+    flex-direction: row;
+    gap: 20px;
 }
 
-.plan-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.logo-container .dollar-sign {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #121212;
+    background-color: #e0f7fa;
+    border-radius: 50%;
+    display: block;
 }
 
-.pricing-card h2 {
-  font-size: 16px;
-  color: #656565;
-  margin: 0;
+.pricing-quote p {
+    font-size: 18px;
+    color: #656565;
+    margin: 0;
 }
 
-.price {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.2em;
-  color: #121212;
-  margin: 5px 0 0;
-  font-weight: bold;
+.pricing-quote h4 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #121212;
+    margin: 0;
 }
 
-.pricing-card p {
-  font-weight: 400;
-  line-height: 1.65em;
-  color: #656565;
-  text-align: center;
-  margin: 40px;
+.pricing-card > p {
+    font-size: 16px;
+    color: #656565;
+    text-align: center;
+    margin: 20px 0;
 }
 
-.get-started {
-  background-color: #ff4d4d;
-  color: #fff;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1.1em;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: 70%;
-  margin-bottom: 20px;
+/* .btn-content.btn-color {
+    background: #FF5733;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+} */
+.btn-group {
+    display: flex;
+    justify-content: center; /* Ensures the button is centered within the btn-group */
+    width: auto; /* Allows the btn-group to size to its content */
 }
 
-.get-started:hover {
-  background-color: #e43a3a;
+.btn-row-left {
+    display: flex;
+    justify-content: center; /* Centers the button within this container */
+    width: auto; /* Allows natural width based on content */
 }
 
-.features {
-  text-align: left;
-  margin-top: 20px;
-  position: relative; /* Ensure relative positioning for absolute child */
+.btn-content.btn-color {
+    background: #FF5733; /* Exact orange from the image */
+    color: #fff;
+    border: none;
+    padding: 12px 24px; /* Adjusted padding for a balanced look */
+    font-size: 16px;
+    border-radius: 10px; /* Matches your provided value */
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 50%; /* Reduced width as per your update */
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: inline-block; /* Ensures proper rendering */
+    text-decoration: none; /* Removes default link underline */
+    margin: 0 auto; /* Centers the button horizontally within its parent */
 }
 
-.features h3 {
-  font-size: 1.2em;
-  color: #000;
-  margin-bottom: 15px;
+.btn-content.btn-color:hover {
+    background: #e04b2c; /* Slightly darker shade for hover */
 }
 
-.visionary {
-  font-size: 1.2em;
-  color: #000;
-  margin-top: 20px;
-  margin-bottom: 10px;
-
+.pricing-list .title {
+    font-size: 18px;
+    color: #121212;
+    margin-bottom: 20px;
 }
 
-.features ul {
-  list-style: none;
-  padding-left: 0;
+.feature-list .list-item {
+    margin-bottom: 20px;
 }
 
-.features li {
-  margin-bottom: 10px;
-  color: #666;
-  font-size: 1.3em;
+.feature-head {
+    font-size: 16px;
+    font-weight: 600;
+    color: #121212;
+    margin-bottom: 5px;
 }
 
 .feature-sub {
-  font-weight: 400;
-  line-height: 1.65em;
-  color: #121212;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 20px;
-  text-align: left;
-  font-style: italic;
+    font-size: 14px;
+    color: #656565;
+    margin: 0;
 }
 
-.bold {
-  font-weight: bold;
+.img-container img {
+    width: 20px;
+    height: 20px;
 }
 
-.bold span {
-  font-weight: normal;
+.text-end.text-black {
+    font-size: 16px;
+    color: #121212;
+    margin-top: 20px;
 }
 
-.check {
-  color: #ff4d4d;
-  margin-right: 10px;
+.pricing-footer .footer-header {
+    font-size: 18px;
+    font-weight: 600;
+    color: #121212;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
-.italic {
-  font-style: italic;
-  color: #000;
-}
-
-.more-features {
-  color: #0f0d0d;
-  margin-top: 50px;
-  font-size: 1.0em;
-  text-align: right;
-  /* Remove margin-left to avoid inward shift */
-  width: 100%;
-  padding-right: 0; /* Remove any default padding */
-  position: absolute; /* Use absolute positioning */
-  right: -200px; /* Push to the extreme right, accounting for card padding */
-}
-
-.pricing-card h4 {
-  font-weight: 100;
-  margin-top: 24px;
+.footer-body {
+    font-size: 16px;
+    color: #656565;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .pricing-card {
-    width: 100%;
-    margin: 0 10px;
-  }
+    h1 {
+        font-size: 32px;
+    }
 
-  .no-fee-circle {
-    top: -15px;
-    padding: 8px 15px;
-    font-size: 0.8em;
-  }
+    .pricing-card {
+        padding: 20px;
+    }
 
-  .plan-wrapper {
-    flex-direction: column;
-    gap: 10px;
-  }
+    .position-absolute .no-fee-circle {
+        top: -40px;
+        left: 10px;
+        width: 100px;
+        height: 100px;
+        font-size: 12px;
+    }
 
-  .plan-icon img {
-    width: 30px;
-    height: 30px;
-  }
+    .icon-row {
+        flex-direction: column;
+        text-align: center;
+    }
 
-  .more-features {
-    position: static; /* Reset to static for smaller screens */
-    right: auto;
-    margin-right: -10px; /* Adjust for smaller screens */
-  }
+    .pricing-quote h4 {
+        font-size: 28px;
+    }
+    .btn-content.btn-color {
+        padding: 10px 20px; /* Slightly reduced padding on mobile */
+        width: 70%; /* Slightly wider on mobile for better usability */
+    }
 
-  h1 {
-    font-size: 2em;
-  }
-
-  .price {
-    font-size: 1.5em;
-  }
+    .pricing-row {
+        flex-direction: column;
+        align-items: center; /* Ensures vertical centering on mobile if needed */
+    }
 }

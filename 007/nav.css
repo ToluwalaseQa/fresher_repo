@@ -220,6 +220,7 @@
             cursor: pointer;
         }
 
+
         .content-sections {
             flex: 1;
             display: flex;
@@ -387,3 +388,4 @@
                 padding: 8px; /* Minimal padding for mobile */
             }
         }
+        

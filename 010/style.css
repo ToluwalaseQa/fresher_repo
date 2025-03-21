@@ -1,0 +1,324 @@
+/* Font faces remain unchanged */
+
+html {
+   font-size: 62.5%;
+}
+
+body {
+   font-family: "Metropolis" !important;
+   margin: 0;
+   padding: 80px 0;
+   font-size: 18px;
+   background-color: #fff;
+   width: 100vw;
+   overflow-x: hidden;
+   color: black;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   line-height: 1.6;
+}
+
+.plan-pricing-container {
+   margin-top: 140px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   max-width: 700px;
+   margin: auto;
+   text-align: center;
+   margin-bottom: 76px;
+}
+
+.plan-pricing-label {
+   color: #FF5634;
+   font-size: 18px;
+   letter-spacing: 1.6px;
+   margin-bottom: 16px;
+   font-weight: 700;
+   line-height: 1.6;
+}
+
+.plan-pricing-title {
+   font-size: 6.2rem;
+   margin-top: 0;
+   font-weight: 700;
+   line-height: 1.2em;
+   color: #121212;
+   margin-bottom: 16px;
+}
+
+.plan-highlight {
+    color: #FF5733;
+}
+
+.plan-pricing-description {
+    font-size: 18px;
+    color: #3F3F3F;
+    padding: 0 20px;
+    font-weight: 400;
+    line-height: 1.85em;
+    text-align: center;
+    margin:0;
+}
+
+.plan-container {
+   border-radius: 24px;
+   border: 1px solid #EDEDED;
+   background: #ffffff;
+   box-shadow: 0px 2px 12px 0px rgba(16, 16, 16, 0.08);
+   padding: 30px;
+   font-family: "Metropolis", sans-serif;
+   width: 90%;
+   max-width: 590px;
+   position: relative;
+   margin-left: auto;
+   margin-right: auto;
+   box-sizing: border-box;
+}
+
+.plan-circle {
+    width: 160px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #fff5f1;
+    position: absolute;
+    transform: translate3d(-35%, -35%, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fa4d2b;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+p {
+    margin: 0;
+}
+
+.plan-circle p {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.plan-second-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.plan-first-child {
+    display: flex;
+    margin-top: 45px;
+    gap: 5px;
+    align-items: center;
+}
+
+.plan-dollar-div {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DFF6FD;
+    margin-right: 10px;
+    gap: 18px;
+    margin-top: 10px;
+}
+
+.plan-dollar-div span {
+    font-size: 28px;
+    font-weight: 700px;
+    color: #5d859c;
+}
+
+.plan-first-child .plan-text-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    letter-spacing: 1px;
+}
+
+.plan-text-div .plan-first-span {
+    line-height: 1.85em;
+    color: #656565;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.plan-text-div .plan-second-span {
+   color: #121212;
+   font-size: 28px;
+   font-weight: 700;
+   line-height: 1.2rem;
+   letter-spacing: 1px;
+}
+
+.plan-second-child {
+   font-weight: 400;
+   line-height: 1.85em;
+   color: #656565;
+   margin-bottom: 16px;
+   text-align: center;
+}
+
+.plan-button {
+   background-color: #FF5634;
+   color: #ffffff;
+   font-weight: 700;
+   transition: all 0.2s ease-in-out;
+   text-transform: capitalize;
+    width: 60%;
+    border-radius: 0.375rem;
+    padding: 26px 38px;
+    font-family: "Metropolis";
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid #FF5634;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 18px;
+}
+
+.plan-button:hover {
+    background-color: #fa5f12f6;
+}
+
+.plan-features {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin-top: 45px;
+    font-family: "Metropolis";
+    width: 100%;
+    font-size: 18px;
+}
+
+.plan-features .plan-features-texts {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.plan-features .plan-right-div {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.plan-features .plan-right-div .plan-first-text {
+    font-size: 18px;
+    color: rgb(18, 18, 18);
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 4px;
+    text-align: left;
+}
+
+.plan-features .plan-right-div .plan-second-text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgb(18, 18, 18);
+    font-style: italic;
+}
+
+.plan-image-svg {
+    position: relative;
+    top: 6px;
+}
+
+.plan-special {
+   font-weight: bolder;
+    font-size: 22px;
+    color: rgb(18, 18, 18);
+    line-height: 36px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    font-family: "Metropolis";
+}
+
+.plan-etc-span {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.plan-last-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 40px 0px;
+}
+
+.plan-last-div .plan-first-span {
+    color: #121212;
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 24px;
+    line-height: 20px;
+}
+
+.plan-last-div .plan-second-span {
+    color: #121212;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+/* Media queries */
+@media (min-width: 1023px) and (max-width: 1280px) {
+    .plan-container {
+      width: 38%;
+    }
+    .plan-circle {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 600px) {
+   .plan-container {
+      width: 590px;
+   }
+   .plan-features .plan-right-div .plan-second-text {
+      font-size: 14px !important;
+   }
+   .plan-features .plan-right-div .plan-first-text {
+      font-size: 16px !important;
+   }
+}
+
+@media (min-width: 1280px) and (max-width: 1600px) {
+    .plan-circle {
+        font-size: 16px;
+    }
+    .plan-features .plan-right-div .plan-second-text {
+        font-size: 12px;
+    }
+    .plan-features .plan-right-div .plan-first-text {
+        font-size: 14px;
+    }
+}

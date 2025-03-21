@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Service Panels</title>
+    <meta name="description" content="Service Panels interface">
+    <style>
+        /* Reset styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            line-height: 1.5;
+            font-family: ui-sans-serif, system-ui, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(50deg, rgba(255,85,51,0.12) 60%, rgba(0,0,0,0.08) 70%);
+            color: #000;
+        }
+
+        /* Layout containers */
+        .main-container {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            background: transparent;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            z-index: 50;
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            height: 64px;
+            top: 0;
+            left: 16px;
+            right: 16px;
+            margin: 16px 0;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background: #fff;
+            border-radius: 32px;
+        }
+
+        @media (min-width: 1024px) {
+            .sidebar {
+                position: fixed;
+                height: 100%;
+                left: 0;
+                width: 96px;
+                flex-direction: column;
+                margin: 0;
+                background: transparent;
+            }
+        }
+
+        .sidebar-logo {
+            width: 64px;
+            height: 64px;
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            left: 50%;
+            bottom: 32px;
+            transform: translateX(-50%);
+            height: 64px;
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            border-radius: 32px;
+            background: #000;
+            padding: 8px;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-container {
+                position: relative;
+                left: auto;
+                bottom: auto;
+                transform: none;
+                flex-direction: column;
+                width: fit-content;
+                height: auto;
+            }
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 700;
+            transition: all 0.15s;
+        }
+
+        .nav-button:hover {
+            outline: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .nav-button.active {
+            background: #ff5533;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+        }
+
+        /* Profile section */
+        .profile-container {
+            z-index: 10;
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            border-radius: 32px;
+            background: #fff;
+            padding: 8px;
+        }
+
+        @media (min-width: 1024px) {
+            .profile-container {
+                flex-direction: column;
+            }
+        }
+
+        .profile-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 9999px;
+            background: rgba(0,0,0,0.1);
+            transition: all 0.15s;
+        }
+
+        .profile-button:hover {
+            outline: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .profile-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 9999px;
+            object-fit: cover;
+        }
+
+        /* Main content */
+        .content {
+            padding-top: 80px;
+            margin-left: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+        }
+
+        @media (min-width: 1024px) {
+            .content {
+                margin-left: 128px;
+                padding-top: 0;
+            }
+        }
+
+        .main-content {
+            margin-top: 4px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+        }
+
+        .title {
+            font-size: 24px;
+            line-height: 40px;
+            letter-spacing: -0.03em;
+            font-weight: 700;
+        }
+
+        @media (min-width: 768px) {
+            .title { font-size: 28px; }
+        }
+
+        @media (min-width: 1024px) {
+            .title { font-size: 32px; }
+        }
+
+        .fullscreen-button {
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 9999px;
+            padding: 8px 16px;
+        }
+
+        @media (min-width: 768px) {
+            .fullscreen-button { font-size: 14px; }
+        }
+
+        /* Status bar */
+        .status-bar {
+            margin: 0 16px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .restaurant-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .restaurant-logo {
+            width: 48px;
+            height: 48px;
+            background: #DA291C;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .restaurant-logo img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+        }
+
+        .restaurant-name {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        @media (min-width: 768px) {
+            .restaurant-name { font-size: 18px; }
+        }
+
+        @media (min-width: 1024px) {
+            .restaurant-name { font-size: 20px; }
+        }
+
+        .timer {
+            font-size: 24px;
+            line-height: 40px;
+            letter-spacing: -0.03em;
+            font-weight: 700;
+        }
+
+        @media (min-width: 768px) {
+            .timer { font-size: 28px; }
+        }
+
+        @media (min-width: 1024px) {
+            .timer { font-size: 32px; }
+        }
+
+        /* Order sections */
+        .order-container {
+            margin: 16px;
+            display: flex;
+            gap: 16px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .order-section {
+            background: #fff;
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .preparing-section {
+            flex: 1;
+        }
+
+        .ready-section {
+            width: 385px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            line-height: 40px;
+            letter-spacing: -0.03em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .section-title { font-size: 28px; }
+        }
+
+        @media (min-width: 1024px) {
+            .section-title { font-size: 32px; }
+        }
+
+        .order-list {
+            overflow-y: auto;
+            flex: 1;
+            text-align: center;
+        }
+
+        .order-item {
+            display: inline-block;
+            height: 64px;
+            min-width: 160px;
+            padding: 0 12px;
+            margin: 0 8px 8px 0;
+            background: rgba(0,0,0,0.1);
+            border-radius: 8px;
+            line-height: 64px;
+        }
+
+        /* Updated Ready section styling */
+        .ready-list {
+            overflow-y: auto;
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .ready-item {
+            height: 64px;
+            background: #119718;
+            color: #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ready-item-large {
+            height: 128px;
+            grid-column: span 3; /* Makes the large item span all 3 columns */
+            background: #119718;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .order-number {
+            font-size: 20px;
+            line-height: 32px;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        @media (min-width: 768px) {
+            .order-number { font-size: 22px; }
+        }
+
+        @media (min-width: 1024px) {
+            .order-number { font-size: 24px; }
+        }
+
+        /* Scrollbar */
+        .order-list, .ready-list {
+            scrollbar-width: thin;
+            scrollbar-color: #000 transparent;
+        }
+
+        .order-list::-webkit-scrollbar,
+        .ready-list::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        .order-list::-webkit-scrollbar-track,
+        .ready-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .order-list::-webkit-scrollbar-thumb,
+        .ready-list::-webkit-scrollbar-thumb {
+            background: #000;
+            border-radius: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="sidebar">
+            <img src="/logo.png" alt="logo" class="sidebar-logo">
+            <div class="nav-container">
+                <a href="/en"><button class="nav-button"><svg class="nav-icon" viewBox="0 0 24 24"><path d="M8 12H16V10H8V12ZM8 8H16V6H8V8ZM19.95 20.475L15.9 15.2C15.6167 14.8167 15.2667 14.5208 14.85 14.3125C14.4333 14.1042 13.9833 14 13.5 14H4V4C4 3.45 4.19583 2.97917 4.5875 2.5875C4.97917 2.19583 5.45 2 6 2H18C18.55 2 19.0208 2.19583 19.4125 2.5875C19.8042 2.97917 20 3.45 20 4V20C20 20.0833 19.9958 20.1625 19.9875 20.2375C19.9792 20.3125 19.9667 20.3917 19.95 20.475ZM6 22C5.45 22 4.97917 21.8042 4.5875 21.4125C4.19583 21.0208 4 20.55 4 20V16H13.5C13.6667 16 13.8208 16.0375 13.9625 16.1125C14.1042 16.1875 14.225 16.2917 14.325 16.425L18.525 21.925C18.4417 21.9583 18.3542 21.9792 18.2625 21.9875C18.1708 21.9958 18.0833 22 18 22H6Z"></path></svg></button></a>
+                <a href="/en/live-counter"><button class="nav-button"><svg class="nav-icon" viewBox="0 0 20 20"><path d="M5.30445 15.5913L6.49035 13.1137C6.57475 12.9161 6.70856 12.7657 6.89179 12.6626C7.07501 12.5595 7.26972 12.508 7.47591 12.508H9.45831V8.67941C7.51493 8.62599 5.8862 8.39603 4.5721 7.98951C3.258 7.583 2.60095 7.08648 2.60095 6.49995C2.60095 5.84931 3.31729 5.32474 4.74997 4.92624C6.18267 4.52774 7.93266 4.32849 9.99995 4.32849C12.0619 4.32849 13.8106 4.52774 15.2459 4.92624C16.6813 5.32474 17.399 5.84931 17.399 6.49995C17.399 7.09182 16.7371 7.58969 15.4134 7.99353C14.0897 8.39737 12.4657 8.62599 10.5416 8.67941V12.508H12.524C12.7355 12.508 12.9316 12.5595 13.1121 12.6626C13.2927 12.7657 13.4252 12.9161 13.5096 13.1137L14.6955 15.5913H13.5961L12.5961 13.5913H7.40379L6.40379 15.5913H5.30445Z"></path></svg></button></a>
+                <a href="/en/dashboard"><button class="nav-button"><svg class="nav-icon" viewBox="0 0 20 20"><path d="M13.0001 15.5834V10.4969H15.5834V15.5834H13.0001ZM8.70842 15.5834V4.41675H11.2917V15.5834H8.70842ZM4.41675 15.5834V8.33662H7.00006V15.5834H4.41675Z"></path></svg></button></a>
+                <a href="/en/order-status"><button class="nav-button active"><svg class="nav-icon" viewBox="0 0 20 20"><path d="M5.74563 11C5.95688 11 6.13542 10.9285 6.28125 10.7856C6.42708 10.6427 6.5 10.4656 6.5 10.2544C6.5 10.0431 6.42854 9.86458 6.28562 9.71875C6.14271 9.54 17.5594 3.44083C17.8531 3.73472 18 4.08806 18 4.50083V13.5058C18 13.9186 17.8531 14.2708 17.5594 14.5625C17.2656 14.8542 16.9125 15 16.5 15H13V17H7Z"></path></svg></button></a>
+                <a href="/en/menu-management"><button class="nav-button"><svg class="nav-icon" viewBox="0 0 20 20"><path d="M11.75 7.95833V6.375C12.1806 6.23611 12.625 6.13542 13.0833 6.07292C13.5417 6.01042 14.0139 5.97917 14.5 5.97917C14.8194 5.97917 15.1424 5.99653 15.4688 6.03125C15.7951 6.06597 16.1389 6.11806 16.5 6.1875V7.72917C16.0833 7.63194 15.7153 7.5625 15.3958 7.52083C15.0764 7.47917 14.7778 7.45817Z"></path></svg></button></a>
+                <a href="/en/otp-confirmation"><button class="nav-button"><svg class="nav-icon" viewBox="0 0 20 20"><path d="M12 14V7.75C12 7.5375 12.0719 7.35938 12.2156 7.21562C12.3594 7.07187 12.5375 7 12.75 7H18.25C18.4625 7 18.6406 7.07187 18.7844 7.21562C18.9281 7.35938 19 7.5375 19 7.75V11.75C19 11.9625 18.9281 12.1406 18.7844 12.2844C18.6406 12.4281 18.4625 12.5 18.25 12.5H13.5L12 14ZM5.5 19C5.0875 19 4.73437 18.8531 4.44062 18.5594C4.14687 18.2656 4 17.9125 4 17.5V2.5C4 2.0875 4.14687 1.73438 4.44062 1.44063C4.73437 1.14688 5.0875 1 5.5 1H14.5C14.9125 1 15.2656 1.14688 15.5594 1.44063C15.8531 1.73438 16 2.0875 16 2.5V6H14.5V5H5.5V15H14.5V14H16V17.5C16 17.9125 15.8531 18.2656 15.5594 18.5594C15.2656 18.8531 14.9125 19 14.5 19H5.5Z"></path></svg></button></a>
+            </div>
+            <div class="profile-container">
+                <a href="/en/profile"><button class="profile-button"><img src="/rider.png" alt="Profile" class="profile-img"></button></a>
+                <a href="/en/notifications"><button class="profile-button"><svg class="nav-icon" viewBox="0 0 20 20" fill="#000"><path d="M4.41675 15.4038V14.3205H5.2565V8.93583C5.2565 7.75956 5.62669 6.73045 6.36706 5.8485C7.10745 4.96656 8.05457 4.43318 9.20842 4.24836V3.20829C9.20842 2.98839 9.28529 2.80147 9.43904 2.64754C9.59279 2.4936 9.77948 2.41663 9.99912 2.41663C10.2188 2.41663 10.4058 2.4936 10.5601 2.64754C10.7145 2.80147 10.7917 2.98839 10.7917 3.20829V4.24836C11.9456 4.43318 12.8927 4.96656 13.6331 5.8485C14.3734 6.73045 14.7436 7.75956 14.7436 8.93583V14.3205H15.5834V15.4038H4.41675ZM9.99423 17.7435C9.62419 17.7435 9.30936 17.6123 9.04975 17.35C8.79014 17.0876 8.66033 16.7722 8.66033 16.4038H11.3398C11.3398 16.7777 11.208 17.0945 10.9445 17.3541C10.681 17.6137 10.3643 17.7435 9.99423 17.7435Z"></path></svg></button></a>
+            </div>
+        </div>
+        <div class="content">
+            <main class="main-content">
+                <div class="header">
+                    <h1 class="title">Order Status</h1>
+                    <button class="fullscreen-button">
+                        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M0 10V5H1.5V8.5H5V10H0ZM8.5 5V1.5H5V0H10V5H8.5Z" fill="black"></path></svg>
+                        FullScreen
+                    </button>
+                </div>
+                <div class="status-bar">
+                    <div class="restaurant-info">
+                        <div class="restaurant-logo">
+                            <img src="/mcdonalds-logo.png" alt="McDonald's">
+                        </div>
+                        <span class="restaurant-name">McDonald's</span>
+                    </div>
+                    <span class="timer">02:06</span>
+                </div>
+                <div class="order-container">
+                    <section class="order-section preparing-section">
+                        <h2 class="section-title">Preparing</h2>
+                        <div class="order-list">
+                            <div class="order-item"><span class="order-number">3885</span></div>
+                            <div class="order-item"><span class="order-number">3886</span></div>
+                            <div class="order-item"><span class="order-number">3887</span></div>
+                            <div class="order-item"><span class="order-number">3888</span></div>
+                            <div class="order-item"><span class="order-number">3889</span></div>
+                            <div class="order-item"><span class="order-number">3890</span></div>
+                            <div class="order-item"><span class="order-number">3891</span></div>
+                        </div>
+                    </section>
+                    <section class="order-section ready-section">
+                        <h2 class="section-title">Ready</h2>
+                        <div class="ready-list">
+                            <div class="ready-item-large"><span class="order-number">3885</span></div>
+                            <div class="ready-item"><span class="order-number">3886</span></div>
+                            <div class="ready-item"><span class="order-number">3887</span></div>
+                            <div class="ready-item"><span class="order-number">3888</span></div>
+                            <div class="ready-item"><span class="order-number">3889</span></div>
+                            <div class="ready-item"><span class="order-number">3890</span></div>
+                            <div class="ready-item"><span class="order-number">3891</span></div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

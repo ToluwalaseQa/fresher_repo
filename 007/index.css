@@ -6,12 +6,14 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
-  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* max-width: 1194px; */
+  max-width: 1194px;
   background: linear-gradient(67.75deg, #FFFFFF 19.18%, #FFEBE7 75.31%);
+  width: 100vw; /* Ensure body takes full viewport width */
+  margin: 0 auto; /* Center the body */
 }
 
 /* Main Container */
@@ -40,8 +42,6 @@ body {
 }
 
 .colorful {
-  width: 92.5%;
-  height: 225%;
   background: rgba(255, 86, 52, 0.12);
   filter: blur(194px);
   transform: rotate(-42.41deg);
@@ -51,8 +51,7 @@ body {
 }
 
 .gray {
-  width: 84.5%;
-  height: 157%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.08);
   filter: blur(138px);
   transform: rotate(-37.86deg);
@@ -122,9 +121,9 @@ body {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 0 16px;
+  padding: 0; /* Remove padding to avoid extra space */
   gap: 16px;
-  width: 100%;
+  width: 100%; /* Ensure container takes full width */
   max-width: 1194px;
   height: 694px;
 }
@@ -141,7 +140,7 @@ body {
 }
 
 .section.preparing {
-  width: 63.8%;
+  width: calc(66.67% - 8px); /* Adjust width to account for gap (16px total, split between sections) */
   max-width: 763px;
   height: 100%;
   flex: none;
@@ -150,7 +149,7 @@ body {
 }
 
 .section.ready {
-  width: 32.1%;
+  width: calc(33.33% - 8px); /* Adjust width to account for gap */
   max-width: 383px;
   height: 100%;
   flex: none;

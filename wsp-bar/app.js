@@ -6,34 +6,26 @@ const mainContent = document.querySelector('.main-content');
 
 fullscreenBtn.addEventListener('click', function () {
   if (!document.fullscreenElement) {
-    // Enter fullscreen page
+    // Enter fullscreen mode
     document.documentElement.requestFullscreen();
-
-    // Hide header and sidebar
-    header.style.display = 'none';
-    sidebar.style.display = 'none';
-    subContent.style.width = '100%'; 
-    subContent.style.height = '100vh'; 
-    subContent.style.marginLeft = '0'; 
-    subContent.style.padding = '16px'; 
-    mainContent.style.marginLeft = '0'; 
+  } else {
     // Exit fullscreen mode
     document.exitFullscreen();
-
-    // Show header and sidebar
-    header.style.display = 'flex';
-    sidebar.style.display = 'flex';
-
-    // Reset sub-content styles
-    subContent.style.width = '';
-    subContent.style.height = '';
-    subContent.style.marginLeft = '';
-    subContent.style.padding = '';
-    mainContent.style.marginLeft = '96px'; 
   }
 });
 
-// Update time every second 
+// Handle fullscreen state changes
+document.addEventListener('fullscreenchange', function () {
+  if (document.fullscreenElement) {
+    // Fullscreen mode is active
+    // Styles are handled by CSS, no need for JavaScript style changes
+  } else {
+    // Exited fullscreen mode
+    // Styles are automatically reset by CSS, no need for JavaScript style changes
+  }
+});
+
+// Update time every second
 function updateTime() {
   const timeElement = document.querySelector('.time');
   const now = new Date();

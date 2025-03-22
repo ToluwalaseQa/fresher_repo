@@ -126,6 +126,7 @@ body {
   stroke: black;
 }
 
+/* Fullscreen styles */
 :fullscreen .sub-content {
   width: 100% !important;
   height: 100vh !important;
@@ -135,6 +136,14 @@ body {
 
 :fullscreen .main-content {
   margin-left: 0 !important;
+}
+
+:fullscreen .sidebar {
+  display: none !important; /* Hide the entire sidebar in fullscreen mode */
+}
+
+:fullscreen .header {
+  display: none !important; /* Hide the header in fullscreen mode (as per original JavaScript intent) */
 }
 
 .sub-content {
@@ -434,14 +443,14 @@ body {
 
   .black-sidebard {
     bottom: 24px;
-    max-width: 344px; /* Use max-width to prevent overflow */
-    width: calc(100% - 32px); /* Ensure it fits within the viewport with padding */
+    max-width: 344px;
+    width: calc(100% - 32px);
     height: 64px;
   }
 
   .main-content {
     padding-top: 80px;
-    padding-bottom: 80px; /* Add padding to account for the .black-sidebard height */
+    padding-bottom: 80px;
   }
 
   .brand-card {
@@ -464,17 +473,17 @@ body {
   }
 
   .grid-container {
-    grid-template-columns: 1fr; /* Single column to prevent overflow */
+    grid-template-columns: 1fr;
     gap: 16px;
     margin-top: 5px;
   }
 
   .section {
     width: 100%;
-    height: auto; /* Allow height to adjust to content */
-    max-height: calc(100vh - 96px - 92px - 64px - 32px); /* Subtract header, brand-card, sidebar, and spacing */
+    height: auto;
+    max-height: calc(100vh - 96px - 92px - 64px - 32px);
     padding: 16px;
-    overflow-y: auto; /* Allow scrolling within the section if needed */
+    overflow-y: auto;
   }
 
   .section h2 {
@@ -482,12 +491,12 @@ body {
   }
 
   .items {
-    grid-template-columns: repeat(3, minmax(64px, 1fr)); /* Allow columns to shrink if needed */
+    grid-template-columns: repeat(3, minmax(64px, 1fr));
     gap: 8px;
   }
 
   .item {
-    width: 100%; /* Allow the item to take the full column width */
+    width: 100%;
     height: 40px;
     font-size: 16px;
     padding: 8px var(--Spacing-6, 24px) 8px var(--Spacing-6, 24px);
@@ -495,8 +504,8 @@ body {
   }
 
   .section-ready .item:first-child {
-    max-width: 334px; /* Use max-width to prevent overflow */
-    width: 100%; /* Allow it to shrink if needed */
+    max-width: 334px;
+    width: 100%;
     height: 80px;
     font-size: 20px;
     padding: 8px var(--Spacing-6, 24px) 8px var(--Spacing-6, 24px);

@@ -1,0 +1,213 @@
+  /* Base Font Size */
+html {
+    font-size: 16px;
+    height: 100%;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background: linear-gradient(67.75deg, #FFFFFF 19.18%, #FFEBE7 75.31%);
+    font-family: 'DM Sans', sans-serif;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
+}
+
+/* McDonald's Info Card */
+.brand-card {
+    display: flex;
+    width: 100%;
+    height: 92px;
+    padding: 16px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -1%;
+}
+
+.brand-logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+}
+
+.time {
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: -3%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 383px; /* Default layout for landscape */
+    gap: 16px;
+    width: 100%;
+    flex-grow: 1;
+    margin-top: 16px;
+}
+
+/* General Section Styles */
+.section {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    padding: 24px;
+    gap: 24px;
+    background: #FFFFFF;
+    margin-bottom: 16px;
+}
+
+.section h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: -3%;
+}
+
+.box-item {
+    overflow-y: auto;
+    flex-grow: 2;
+}
+
+.items {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.item-card {
+    display: flex;
+    width: 106px;
+    height: 64px;
+    align-items: center;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.10);
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.48px;
+    justify-content: center;
+}
+
+.section-ready .item {
+    background: #119717;
+    color: white;
+}
+
+.section-ready .item:first-child {
+    justify-content: center;
+    width: 100%;
+    height: 128px;
+    font-size: 32px;
+    padding: 24px;
+}
+
+
+@media (max-width: 768px) {
+    .brand-card {
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height automatically */
+        padding: 16px; /* Reduce padding for smaller screens */
+        flex-direction: row; /* Keep logo and time in a row */
+        align-items: center; /* Center items vertically */
+        justify-content: space-between; /* Space out logo and time */
+        gap: 8px; /* Space between logo and time */
+    }
+
+    .brand-logo {
+        gap: 8px; /* Space between logo and text */
+    }
+
+    .brand-logo img {
+        width: 40px; /* Reduce logo size */
+        height: 40px;
+        border-radius: 16px;
+    }
+
+    .time {
+        font-size: 24px; /* Reduce time font size */
+    }
+
+    .grid-wrapper {
+        grid-template-columns: 1fr 1fr; /* Two-column layout for portrait mode */
+        gap: 16px; /* Space between sections */
+    }
+
+    .section {
+        width: 100%; /* Full width for sections */
+        height: 100vh; /* Adjust height automatically */
+        padding: 16px; /* Add padding to sections */
+    }
+
+    .section h2 {
+        font-size: 24px; /* Reduce heading font size */
+    }
+
+    .item-card {
+        width: 80px; /* Reduce item width */
+        height: 48px; /* Reduce item height */
+        font-size: 18px; /* Reduce item font size */
+    }
+
+    .section-ready .item:first-child {
+        height: 96px; /* Reduce height for the first item in "Ready" */
+        font-size: 24px; /* Reduce font size for the first item in "Ready" */
+    }
+}
+
+@media (max-width: 480px) {
+
+    .brand-card {
+        padding: 16px; /* Further reduce padding for smaller screens */
+    }
+    .brand-logo {
+        gap: 8px; /* Space between logo and text */
+    }
+
+    .brand-logo img {
+        width: 40px; /* Further reduce logo size */
+        height: 40px;
+        border-radius: 16px;
+    }
+
+    .time {
+        font-size: 20px; /* Further reduce time font size */
+    }
+
+    .section h2 {
+        font-size: 20px; /* Further reduce heading font size */
+    }
+
+    .item-card {
+        width: 64px; /* Further reduce item width */
+        height: 40px; /* Further reduce item height */
+        font-size: 16px; /* Further reduce item font size */
+    }
+
+    .section-ready .item:first-child {
+        height: 80px; /* Further reduce height for the first item in "Ready" */
+        font-size: 20px; /* Further reduce font size for the first item in "Ready" */
+    }
+}

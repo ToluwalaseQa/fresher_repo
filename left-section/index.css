@@ -1,0 +1,146 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f5f5f5; /* neutral background behind the panel */
+  }
+  
+  .introduction {
+    width: 480px;
+    border-radius: 32px;
+    background: url("orderific.png") center/cover no-repeat;
+    position: relative;
+    margin: 40px auto; /* center horizontally on page */
+  
+    /* Layout from snippet */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* place text near bottom */
+    align-items: flex-start;
+    padding: 40px;
+    gap: 600px; /* as snippet says, though you may adjust if text is too large */
+    isolation: isolate; /* let overlays stack with z-index */
+    width: 480px;
+    height: 976px;
+  }
+  .overlay-bg1 {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 480px;
+    height: 976px;
+    border-radius: 32px;
+    background: #FF5634;
+    opacity: 0.5;
+    z-index: 0;
+  }
+  
+  .overlay-bg2 {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 0;
+    height: 50%; /* covers bottom half */
+    border-radius: 32px;
+  
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      #000000 50%,
+      #000000 100%
+    );
+    opacity: 0.5;
+    z-index: 1;
+  }
+ 
+  .orderific-logo-container {
+    position: absolute;
+    top: 50px;   /* adjust as needed */
+    left: 40px;  
+    z-index: 2;  /* above overlays */
+  }
+  .orderific-logo-img {
+    width: 120px;  /* scale the logo as you wish */
+    height: auto;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 400px; /* snippet says 400px wide */
+    margin: 0 auto;
+    z-index: 3; /* above overlays */
+    position: relative; /* so text is stacked over overlays */
+  }
+  .big-title {
+    width: 400px;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 56px;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin: 0;
+  }
+  .description {
+    width: 400px;
+    height: 80px;
+  
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px; /* or 125% if needed */
+    letter-spacing: -0.01em;
+  
+    color: #FFFFFF;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+ 
+  @media (max-width: 500px) {
+    .introduction {
+      width: 90vw;         
+      min-height: auto;   
+      padding: 20px;       
+      gap: 300px;          
+    }
+    .orderific-logo-container {
+      top: 10px;
+      left: 10px;
+    }
+    .orderific-logo-img {
+      width: 80px; /* smaller on mobile */
+    }
+    .big-title {
+      font-size: 36px;
+      line-height: 40px;
+      width: 100%;
+    }
+    .description {
+      font-size: 14px;
+      line-height: 18px;
+      width: 100%;
+    }
+    @media (orientation: landscape) {
+      .frame-1000007039 {
+        padding: 20px;
+      }
+      .headline {
+        font-size: 28px;
+      }
+      .description {
+        font-size: 14px;
+      }
+    }
+    
+  }
+  

@@ -16,15 +16,13 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100%;
-  background: linear-gradient(67.75deg, #FFFFFF 19.18%, #FFEBE7 75.31%);
+  background: linear-gradient(67.75deg, #ffffff 19.18%, #ffebe7 75.31%);
+  padding: 1rem;
   font-family: 'DM Sans', sans-serif;
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-top: 16px;
 }
 
-/* Profile Widget (Replaces McDonald's Info Card) */
-.profile-widget {
+/* McDonald's Info Card */
+.brand-card {
   display: flex;
   width: 100%;
   height: 92px;
@@ -35,7 +33,7 @@ body {
   background: rgba(0, 0, 0, 0.05);
 }
 
-.logo {
+.brand-logo {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -44,7 +42,7 @@ body {
   letter-spacing: -1%;
 }
 
-.logo img {
+.brand-logo img {
   width: 60px;
   height: 60px;
   border-radius: 16px;
@@ -57,9 +55,9 @@ body {
 }
 
 /* Grid Wrapper */
-.container {
+.grid-wrapper {
   display: grid;
-  grid-template-columns: 1fr 383px; /* Default layout for landscape */
+  grid-template-columns: 1fr 383px;
   gap: 16px;
   width: 100%;
   flex-grow: 1;
@@ -71,11 +69,26 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+}
+
+/* Preparing Section */
+.section-preparing {
+  max-width: 100%;
+  height: 100%;
   border-radius: 24px;
   padding: 24px;
   gap: 24px;
-  background: #FFFFFF;
-  margin-bottom: 16px;
+  background: #ffffff;
+}
+
+/* Ready Section */
+.section-ready {
+  width: 383px;
+  height: 100%;
+  border-radius: 24px;
+  padding: 24px;
+  gap: 24px;
+  background: #ffffff;
 }
 
 .section h2 {
@@ -85,9 +98,12 @@ body {
   letter-spacing: -3%;
 }
 
-.items-grid {
+.box-item {
   overflow-y: auto;
   flex-grow: 2;
+}
+
+.items {
   display: flex;
   gap: 8px;
   justify-content: center;
@@ -96,26 +112,25 @@ body {
   flex-grow: 1;
 }
 
-.item-card {
+.item {
   display: flex;
   width: 106px;
   height: 64px;
   align-items: center;
   border-radius: 16px;
-  background: rgba(0, 0, 0, 0.10);
+  background: rgba(0, 0, 0, 0.1);
   font-weight: 700;
   font-size: 24px;
   letter-spacing: -0.48px;
   justify-content: center;
 }
 
-/* Ready Section Specific Styles */
-.ready-grid .item-card {
+.section-ready .item {
   background: #119717;
   color: white;
 }
 
-.ready-grid .item-card.large {
+.section-ready .item:first-child {
   justify-content: center;
   width: 100%;
   height: 128px;
@@ -123,44 +138,71 @@ body {
   padding: 24px;
 }
 
-/* Preparing Section Specific Styles */
-.preparing .item-card {
-  background: #0000001A;
+.section-preparing .item {
+  background: #0000001a;
   color: black;
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr; /* Single column for smaller screens */
+@media (max-width: 48rem) {
+  .grid-wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
   }
 
   .section {
-    width: 100%; /* Full width for sections */
-    height: auto; /* Adjust height automatically */
+    height: auto;
+    min-height: 400px;
   }
 
-  .item-card {
-    width: 80px; /* Reduce item width */
-    height: 48px; /* Reduce item height */
-    font-size: 18px; /* Reduce item font size */
+  .section h2 {
+    font-size: 24px;
   }
 
-  .ready-grid .item-card.large {
-    height: 96px; /* Reduce height for the first item in "Ready" */
-    font-size: 24px; /* Reduce font size for the first item in "Ready" */
+  .item {
+    width: 80px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .section-ready .item:first-child {
+    height: 100px;
+    font-size: 24px;
+  }
+
+  .section-ready {
+    width: 100%;
+    height: 100%;
   }
 }
 
-@media (max-width: 480px) {
-  .item-card {
-    width: 64px; /* Further reduce item width */
-    height: 40px; /* Further reduce item height */
-    font-size: 16px; /* Further reduce item font size */
+@media (max-width: 30rem) {
+  .grid-wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
   }
 
-  .ready-grid .item-card.large {
-    height: 80px; /* Further reduce height for the first item in "Ready" */
-    font-size: 20px; /* Further reduce font size for the first item in "Ready" */
+  .brand-logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .time {
+    font-size: 20px;
+  }
+
+  .section h2 {
+    font-size: 20px;
+  }
+
+  .item {
+    width: 60px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .section-ready .item:first-child {
+    height: 80px;
+    font-size: 20px;
   }
 }

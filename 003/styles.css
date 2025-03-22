@@ -283,3 +283,46 @@ h1 {
     color: #656565;
     font-weight: 700;
 }
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .pro-plan {
+        font-size: 1em;
+    }
+
+    h4 {
+        font-size: 1.2em;
+    }
+
+    .para-99 {
+        font-size: 0.9em;
+    }
+
+    .plan-button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    .title {
+        font-size: 1em;
+    }
+
+    .feature-head {
+        font-size: 0.9em;
+    }
+
+    .feature-sub {
+        font-size: 0.8em;
+    }
+
+    .footer-header {
+        font-size: 1em;
+    }
+
+    .footer-word {
+        font-size: 0.8em;
+    }
+}

@@ -1,17 +1,17 @@
 /* Reset and Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Metropolis:wght@400;700&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Metropolis';
+    font-family: 'Metropolis', sans-serif; /* Added fallback */
 }
-
 
 body {
     background-color: #fff;
     color: #121212;
     line-height: 1.6;
-    font-family: 'Metropolis';
+    font-family: 'Metropolis', sans-serif; /* Added fallback */
     font-size: 18px;
 }
 
@@ -245,7 +245,7 @@ h1 {
 
 .feature-sub{
     color: #121212;
-    margin-bottom: 34px;
+    margin-bottom: 24px;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
@@ -325,4 +325,16 @@ h1 {
     .footer-word {
         font-size: 0.8em;
     }
+}
+
+/* Fix check icon size and feature list spacing */
+.feature-list .img-container img {
+    width: 20px;  /* Set to correct size */
+    height: 20px; /* Set to correct size */
+}
+
+/* Ensure consistent gap between feature items */
+.feature-list .list-item .d-inline-flex {
+    gap: 12px; /* Adjust this value as needed for consistent spacing */
+    align-items: flex-start;
 }

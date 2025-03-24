@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Orderific</title>
+    <link href="https://fonts.googleapis.com/css2?family=Metropolis:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <!-- Mobile Header Layout -->
+            <div class="mobile-header md:hidden w-full text-center">
+                <img src="./assets/Logo-Orange-Black-2 1.png" alt="Orderific Logo" class="logo mx-auto">
+                <div class="mobile-actions">
+                    <img src="./assets/Group 1000004284.png" alt="UK Flag" class="flag">
+                    <button class="login-btn">Login</button>
+                    <button class="start-btn">START FOR FREE</button>
+                </div>
+            </div>
+            
+            <!-- Desktop Header Layout -->
+            <div class="hidden md:flex items-center">
+                <img src="./assets/Logo-Orange-Black-2 1.png" alt="Orderific Logo" class="logo">
+            </div>
+            <!-- Navigation -->
+            <nav class="header-nav hidden md:flex space-x-6">
+                <a href="#">Home</a>
+                <button>Features <span>▾</span></button>
+                <a href="#">Pricing</a>
+                <a href="#">About Us</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </nav>
+            
+            <!-- UK Flag, Login, and START FOR FREE Button (Desktop) -->
+            <div class="header-right hidden md:flex items-center">
+                <img src="./assets/Group 1000004284.png" alt="UK Flag" class="flag">
+                <button class="login-btn">Login</button>
+                <button class="start-btn">START FOR FREE</button>
+            </div>
+            
+            <!-- Hamburger Menu Icon -->
+            <button id="menu-toggle" class="md:hidden px-2 py-1 border rounded text-gray-700">☰</button>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white shadow-md p-4">
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Features</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Pricing</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">About Us</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Blog</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact</a>
+    </div>
+
+    <!-- Landing Page Section -->
+    <section class="landing-section">
+        <!-- Left content -->
+        <div class="left-content">
+            <!-- Title -->
+            <h1>Free Plan</h1>
+            <p>
+                Feugiat elit imperdiet enim pellentesque nibh bibendum lacinia pulvinar justo 
+                cursus ultricies adipiscing risus porta scelerisque at ipsum.
+            </p>
+        
+            <!-- Section Title -->
+            <h2>What's included in the plan?</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna 
+                <span class="text-red-500 font-bold">adipiscing praesent</span> velit viverra sit 
+                semper lorem eu cursus vel hendrerit elementum morbi curabitur etiam nibh justo lorem 
+                aliquet donec sed sit mi dignissim at ante massa mattis.
+            </p>
+        
+            <!-- Subheading -->
+            <h3>Is this the right plan for my restaurant?</h3>
+            <p>
+                Vitae congue eu consequat ac felis placerat <span class="font-semibold">vestibulum lectus</span> mauris 
+                ultrices cursus sit amet dictum sit amet justo donec enim diam porttitor lacus luctus accumsan tortor posuere 
+                praesent tristique magna sit amet purus gravida quis blandit turpis.
+            </p>
+        </div>
+        
+        <!-- Right card -->
+        <div class="right-card">
+            <div class="price-row">
+                <img src="./assets/Group 42114.png" alt="Bike" class="bike-icon"> 
+                <div class="price-text">
+                    <span>FREE</span>
+                    <h2>$0/mo</h2>
+                </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            
+            <button class="get-started-btn">Get started</button>
+            
+            <h3>What’s included:</h3>
+            <ul>
+                <li><img src="./assets/Check.png" alt="Checkmark"> Single Location (30 tables limit)</li>
+                <li><img src="./assets/Check.png" alt="Checkmark"> Mobile Order & Pay</li>
+                <li><img src="./assets/Check.png" alt="Checkmark"> Split the Bill</li>
+                <li><img src="./assets/Check.png" alt="Checkmark"> Delivery & Pickup</li>
+                <li><img src="./assets/Check.png" alt="Checkmark"> Directory</li>
+                <li><img src="./assets/Check.png" alt="Checkmark"> Limited Customisable</li>
+                <li><img src="./assets/Check.png" alt="Checkmark"> Website Builder Basic</li>
+                <li><img src="./assets/Check.png" alt="Checkmark"> Kitchen Printer Integration</li>
+                <li><img src="./assets/Check.png" alt="Checkmark"> Delivery & Pickup</li>
+                <li><img src="./assets/Check.png" alt="Checkmark"> Gratuities (Tips)</li>
+            </ul>
+        </div>                
+    </section>
+
+    <!-- Gray gridline separator between Landing Section and Footer -->
+    <div class="section-footer-separator"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <!-- Logo and Description -->
+            <div class="logo-section">
+                <img src="./assets/Logo-Orange-Black-2 2.png" alt="Orderific Logo">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut.
+                </p>
+            </div>
+
+            <!-- Download Buttons -->
+            <div class="download-buttons">
+                <button>
+                    <img src="./assets/Vector.png" alt="iOS" class="h-6 w-5"> Download for iOS
+                </button>
+                <button>
+                    <img src="./assets/Vector (1).png" alt="Android" class="h-3 w-6"> Download for Android
+                </button>
+            </div>
+        </div>
+    
+        <!-- Middle Section: Menu, Utility, and Available in -->
+        <div class="footer-middle">
+            <!-- Menu Section -->
+            <div>
+                <h4>Menu</h4>
+                <div class="menu-grid">
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Contact</li>
+                        <li>Blog</li>
+                        <li>Blog posts</li>
+                    </ul>
+                    <ul>
+                        <li>Plans</li>
+                        <li>Plan single</li>
+                        <li>Register</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Utility Pages Section -->
+            <div>
+                <h4>Utility pages</h4>
+                <ul>
+                    <li>Start here</li>
+                    <li>Styleguide</li>
+                    <li>Password protected</li>
+                    <li>404 Not found</li>
+                    <li>Licenses</li>
+                    <li>Changelog</li>
+                    <li><a href="#" class="text-orange-600 font-bold underline">Browse More Templates</a></li>
+                </ul>
+            </div>
+    
+            <!-- Available in Section -->
+            <div class="available-in">
+                <h4>Available in</h4>
+                <div class="grid  gap-5 mt-10">
+                    <div><img src="./assets/Group 42113.png" alt="San Francisco"><span>San Francisco, CA</span></div>
+                    <div><img src="./assets/Mask Group.png" alt="New York"><span>New York, NY</span></div> 
+                    <div><img src="./assets/Mask Group (1).png" alt="Los Angeles"><span>Los Angeles, CA</span></div>
+                    <div><img src="./assets/Cn Tower.png" alt="Seattle"><span>Seattle, WA</span></div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Gray gridline separator -->
+        <div class="footer-separator"></div>
+    
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            Copyright © Delivery X | Designed by 
+            <span>BRIX Templates</span> - Powered by 
+            <span>Webflow</span>
+        </div>
+    </footer>    
+    
+    <script>
+        // JavaScript to toggle the mobile menu
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
